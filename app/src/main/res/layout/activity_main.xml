@@ -55,6 +55,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:hint="Группа"
         android:id="@+id/group"
+        android:maxLength="3"
         android:paddingHorizontal="10dp"
         android:background="@drawable/tedit_bg"/>
 

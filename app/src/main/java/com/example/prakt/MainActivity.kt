@@ -14,23 +14,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
         binding.btnOpen.setOnClickListener {
+
+//            System.out.println(binding.fio.text.toString())
+//            System.out.println(binding.number.text.toString())
+//            System.out.println(it) проверка то что данные вводятся
 
             val disp = App.dm.api
                 .checkStudent(
-                    binding.fam.text.toString(),
-                    binding.name.text.toString(),
-                    binding.otche.text.toString(),
-                    binding.group.text.toString()
+                    binding.fio.text.toString(),
+                    binding.number.text.toString()
                 )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     if (it == "valid"){
-                        App.dm.setFam(binding.fam.text.toString())
-                        App.dm.setName(binding.name.text.toString())
-                        App.dm.setOtche(binding.otche.text.toString())
-                        App.dm.setGroup(binding.group.text.toString())
+                        App.dm.setFio(binding.fio.text.toString())
+                        App.dm.setNumOfStudent(binding.number.text.toString())
                         startActivity(Intent(this, SecondActivity::class.java))
                     }
                     else {
@@ -39,6 +42,8 @@ class MainActivity : AppCompatActivity() {
                 }, {
 
                 })
+
+
 
         }
     }

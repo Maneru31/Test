@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1E1E1E"
     >
 
     <ImageView
@@ -22,7 +23,7 @@
         android:layout_height="55dp"
         android:text="КТК КНИТУ"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="#BFBFBF"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

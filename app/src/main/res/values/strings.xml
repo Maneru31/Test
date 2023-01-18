@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Prakt</string>
+
+    <string-array name="address">
+        <item>Ктк 1 : 25 октября 10а</item>
+        <item>Ктк 2 : Зорге 13а</item>
+    </string-array>
 </resources>

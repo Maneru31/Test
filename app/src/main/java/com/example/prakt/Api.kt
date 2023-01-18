@@ -12,20 +12,22 @@ import retrofit2.http.Query
 
 interface Api {
 
-    @GET("check_student.php")
-    fun checkStudent(@Query("f") f : String,
-        @Query("i") i: String,
-        @Query("o") o: String,
-        @Query("group") group : String,
-        @Query("permission") permission : String = "*W7a^!pH5WVz7XwjS-6ZaqdBsRNfRQjFwz5mtpURte*7x^WcK8") : Observable<String>
+    @GET("auth_mobile_app.php")
+    fun checkStudent(
+            @Query("studentFIO") studentFIO: String,
+            @Query("numOfStudent") numOfStudent: String,
+            @Query("token") token: String = "DJGrB5clgrQ370wfQtTUoe0yNZEO5dcNnsanEZy9Fbyx8yrqn3OUrltnieE182E8oQ318RQHl3fz9wtjsfvL7etZueveurgzSpSQLXH4PnJgjqLRJFjZBwxwUSRToZ9c"
+                     ) : Observable<String>
 
     @POST("create_request.php")
-    fun request(@Query("f") f : String,
-                @Query("i") i: String,
-                @Query("o") o: String,
-                @Query("group") group : String,
-                @Query("count") count : String,
-                @Query("permission") permission: String = "*W7a^!pH5WVz7XwjS-6ZaqdBsRNfRQjFwz5mtpURte*7x^WcK8") : Observable<String>
+        fun request(
+            @Query("studentFIO") studentFIO: String,
+            @Query("countOfRequests") countRequest: String,
+            @Query("dateOfSending") dateOfSending : String,
+            @Query("addressOfThePoint") addressOfThePoint : String,
+            @Query("token") token: String = "DJGrB5clgrQ370wfQtTUoe0yNZEO5dcNnsanEZy9Fbyx8yrqn3OUrltnieE182E8oQ318RQHl3fz9wtjsfvL7etZueveurgzSpSQLXH4PnJgjqLRJFjZBwxwUSRToZ9c"
+
+    ): Observable<String>
 
     companion object {
         fun createApi() : Api{
@@ -33,7 +35,7 @@ interface Api {
                 .setLenient()
                 .create()
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://креатив256.рф/")
+                .baseUrl("https://ktkknity.online/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))

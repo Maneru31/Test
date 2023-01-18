@@ -7,6 +7,8 @@ import android.widget.Toast
 import com.example.prakt.databinding.ActivitySecondBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,24 +16,27 @@ class SecondActivity : AppCompatActivity() {
         val binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fam = App.dm.getFam()
-        val name = App.dm.getName()
-        val otche = App.dm.getOtche()
-        val group = App.dm.getGroup()
+        val fio = App.dm.getFio()
+        val name = App.dm.getNumOfStudent()
 
-        binding.fam2.text = fam
-        binding.name2.text = name
-        binding.otche2.text = otche
-        binding.group2.text = group
+        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+        val currentDate = sdf.format(Date()) //время хз как поставить в .request :/
 
-        println(fam)
+        var addres = binding.spinnerAdress.selectedItem.toString()
+
+
+
+        binding.fio.text = fio
+
+        println(fio)
         println(name)
-        println(otche)
-        println(group)
+        System.out.println(currentDate)// проверочка
 
         binding.btnRequest.setOnClickListener {
 
-            if (binding.count.text.toString() == "0") {
+            addres = binding.spinnerAdress.selectedItem.toString()
+
+            if (binding.count.text.toString() < "0" && binding.count.text.toString() > "6") {
                 Toast.makeText(this, "Укажите количество", Toast.LENGTH_SHORT).show()
 
             } else {
@@ -39,11 +44,10 @@ class SecondActivity : AppCompatActivity() {
                 println(binding.count.text.toString())
                 val dps = App.dm.api
                     .request(
-                        binding.fam2.text.toString(),
-                        binding.name2.text.toString(),
-                        binding.otche2.text.toString(),
-                        binding.group2.text.toString(),
-                        binding.count.text.toString()
+                        binding.fio.text.toString(),
+                        binding.count.text.toString(),
+                        currentDate.toString(), //мб сработает?
+                        binding.spinnerAdress.toString()
                     )
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

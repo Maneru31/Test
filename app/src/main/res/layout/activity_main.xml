@@ -4,70 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#1E1E1E">
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
+        android:text="Добро пожаловать, Пожалуйста авторизуйтесь"
+        android:textAlignment="center"
+        android:textColor="#BFBFBF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/fio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:layout_width="243dp"
+        android:layout_width="320dp"
         android:layout_height="40dp"
+        android:textColor="#BFBFBF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        android:hint="Фамилия"
-        android:id="@+id/fam"
+        app:layout_constraintVertical_bias="0.4"
+        android:hint="ФИО"
+        android:textColorHint="#BFBFBF"
+        android:id="@+id/fio"
         android:paddingHorizontal="10dp"
         android:background="@drawable/tedit_bg"/>
 
 
     <EditText
-        android:layout_width="243dp"
-        android:layout_height="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fam"
-        android:layout_marginTop="43dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="Имя"
-        android:id="@+id/name"
-        android:paddingHorizontal="10dp"
-        android:background="@drawable/tedit_bg"/>
-
-
-    <EditText
-        android:layout_width="243dp"
+        android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginTop="43dp"
+        android:textColor="#BFBFBF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/fio"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="Отчество"
-        android:id="@+id/otche"
-        android:paddingHorizontal="10dp"
-        android:background="@drawable/tedit_bg"/>
-
-
-    <EditText
-        android:layout_width="243dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="43dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/otche"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="Группа"
-        android:id="@+id/group"
-        android:maxLength="3"
+        android:hint="Номер студенческого"
+        android:textColorHint="#BFBFBF"
+        android:id="@+id/number"
+        android:maxLength="4"
         android:paddingHorizontal="10dp"
         android:background="@drawable/tedit_bg"/>
 
     <Button
-        android:layout_width="172dp"
+        android:layout_width="200dp"
         android:layout_height="43dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/group"
+        app:layout_constraintTop_toBottomOf="@id/number"
         android:text="Вход"
-        android:textColor="@color/white"
-        android:background="#8C0505"
+        android:textColor="#BFBFBF"
+        android:background="#590404"
         android:id="@+id/btnOpen"
         android:layout_marginTop="43dp"
         />
